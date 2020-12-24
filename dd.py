@@ -5,7 +5,6 @@ displayDimenson=700                                                  # How big d
 gridDimenson=35                                                     # How many boxes do you want in x and y?
 width=displayDimenson/gridDimenson                                   # This will be the width of the boxes in Pixels.
 
-
 win=pygame.display.set_mode((displayDimenson,displayDimenson),pygame.FULLSCREEN)
 pygame.display.set_caption("Game of Life")
 clock = pygame.time.Clock()
@@ -68,8 +67,7 @@ def drawGrid():
             x+=width
         y+=width
         x=0
-
-             
+        
 switch=1                                                               #   This is so you can pause.
 running=True                                                         # For the main loop
 menu=True
@@ -92,6 +90,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN or event.key ==pygame.K_b:
                     menu=False
+                    
     keys=pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:                                               #   For the pause property. Switches between -1 and 1.
         switch *=-1
@@ -113,7 +112,6 @@ while running:
     drawGrid()
     drawLine()
 
-
     if switch==-1:  #   Main pause if
         lineColor=(255, 184, 62)
         for i in range(gridDimenson):
@@ -127,8 +125,6 @@ while running:
                 else:
                     next[i][y]=state
         grid=next 
-    clock.tick(fps)
-        
-        
+    clock.tick(fps)       
     pygame.display.update()
 
